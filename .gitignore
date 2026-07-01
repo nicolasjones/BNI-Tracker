@@ -1,0 +1,21 @@
+node_modules/
+.next/
+dist/
+coverage/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+.DS_Store
+
+# Local SDD/Codex runtime state
+.atl/codex-home/
+.atl/.skill-registry.cache.json
+
+# Local Claude runtime/settings
+.claude/settings.local.json
+*.tsbuildinfo
+.atl/skill-registry.md

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BNI Track - Interacciones</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#ffdad8",
+                        "on-secondary-fixed-variant": "#3e4853",
+                        "surface-container": "#eeeeee",
+                        "on-surface": "#1a1c1c",
+                        "primary-container": "#c8102e",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dadada",
+                        "warning": "#B45309",
+                        "surface-container-high": "#e8e8e8",
+                        "tertiary-fixed-dim": "#f7bc67",
+                        "success": "#15803D",
+                        "primary-fixed": "#ffdad8",
+                        "secondary-fixed-dim": "#bdc7d5",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-tint": "#bf0229",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-primary": "#ffb3b1",
+                        "outline-variant": "#e5bdbb",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "secondary-fixed": "#d9e3f1",
+                        "primary": "#9e001f",
+                        "tertiary": "#6a4500",
+                        "primary-fixed-dim": "#ffb3b1",
+                        "tertiary-container": "#885c0b",
+                        "on-background": "#1a1c1c",
+                        "on-surface-variant": "#5c403f",
+                        "on-secondary-container": "#5b6571",
+                        "text-secondary": "#6B7280",
+                        "on-secondary-fixed": "#121d26",
+                        "border-subtle": "#E5E7EB",
+                        "tertiary-fixed": "#ffddb2",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "inverse-surface": "#2f3131",
+                        "danger": "#B91C1C",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#92001c",
+                        "on-primary-fixed": "#410007",
+                        "on-primary": "#ffffff",
+                        "text-primary": "#1F2933",
+                        "on-tertiary-container": "#ffddb3",
+                        "on-tertiary-fixed": "#291800",
+                        "on-tertiary-fixed-variant": "#624000",
+                        "secondary": "#555f6b",
+                        "outline": "#906f6e",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e2e2e2",
+                        "secondary-container": "#d9e3f1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "standard-padding": "16px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "container-margin": "24px",
+                        "compact-padding": "8px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["\"Source Sans 3\""],
+                        "headline-md": ["Montserrat"],
+                        "label-md": ["\"Source Sans 3\""],
+                        "body-sm": ["\"Source Sans 3\""],
+                        "headline-xl": ["Montserrat"],
+                        "body-md": ["\"Source Sans 3\""],
+                        "body-lg": ["\"Source Sans 3\""],
+                        "headline-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "700" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md h-screen overflow-hidden flex">
+<!-- SideNavBar -->
+<nav class="fixed inset-y-0 left-0 z-40 flex flex-col bg-surface-container-lowest border-r border-border-subtle docked left-0 h-full w-[240px]">
+<div class="flex flex-col h-full">
+<!-- Header -->
+<div class="p-standard-padding border-b border-border-subtle flex items-center gap-3">
+<img alt="Logo de BNI Track" class="w-8 h-8 rounded-full object-cover" data-alt="Logotipo de BNI Track, un isotipo corporativo en tonos rojos oscuros, profesional y limpio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgYHpjqAreXoxOqeRq0lfEzLd6cDCJ2kq9HLXl6qD-SP0Yd4TGsCW-mpKKvYejT0ByhBX5mVvJCWTMwWx3POdU3wRTe3BU57SWJkyX0UejcJsQSwKe1hYgEuXiQ6_IPfos8TF1r0IP30zXp0p6nlDeSfb4eKBaB6PlcliGdpame_TstHjkvkZWd5PUmjMq9k8KOMrJfV1yf-VNu0x4gcBExOfQ-GGGogsPaxEoeV19jLFtTgkmkAOBrK8WXMR3UJSL5thccTyC-OY"/>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">BNI Track</h1>
+<p class="font-label-md text-label-md text-secondary">CRM de Networking</p>
+</div>
+</div>
+<!-- Tabs -->
+<ul class="flex-1 overflow-y-auto py-2">
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                        Dashboard
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">group</span>
+                        Contactos
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-primary border-l-4 border-primary bg-surface-container-low font-label-md text-label-md opacity-80 duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">forum</span>
+                        Interacciones
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+                        Base de Conocimiento
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+                        Configuración
+                    </a>
+</li>
+</ul>
+<!-- Footer -->
+<div class="p-4 border-t border-border-subtle">
+<a class="flex items-center gap-3 text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md px-2 py-1 rounded" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+                    Perfil de Usuario
+                </a>
+</div>
+</div>
+</nav>
+<!-- TopAppBar & Main Content Wrapper -->
+<div class="flex-1 flex flex-col ml-[240px] h-full overflow-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-[240px] h-14 flex justify-between items-center px-standard-padding z-30 bg-surface-container-lowest border-b border-border-subtle">
+<!-- Product Name / Context (Optional here as it's in sidebar, but keeping structure if needed for mobile) -->
+<div class="flex items-center gap-4 hidden md:flex">
+<h2 class="font-headline-md text-headline-md font-bold text-primary">Interacciones</h2>
+</div>
+<!-- Search Bar -->
+<div class="flex-1 max-w-md mx-4 relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-sm">search</span>
+<input class="w-full pl-9 pr-4 py-1.5 h-[36px] bg-surface-container-low border border-border-subtle rounded-lg font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all" placeholder="Buscar audios o transcripciones..." type="text"/>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-2">
+<button class="p-2 text-secondary hover:bg-surface-container-high rounded-lg transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-secondary hover:bg-surface-container-high rounded-lg transition-colors">
+<span class="material-symbols-outlined">smart_toy</span>
+</button>
+<button class="ml-2 bg-primary-container text-white px-4 py-1.5 h-[36px] rounded-lg font-label-md text-label-md hover:bg-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                    Nuevo
+                </button>
+<img alt="Avatar del usuario" class="w-8 h-8 rounded-full ml-4 object-cover border border-border-subtle" data-alt="Fotografía corporativa de una mujer joven con traje sastre azul marino, sonriendo levemente, fondo neutro." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0cgrNK8jbOE0Xr5j9Yop--Cjc7zM535T6p5lICimPzs0oheIw6hoVx-GNPr6PmOOuCn_6oHBaBZK0al3_HJYEqjuJICxz4JOi54wTY3t8Tg--VOUu9B4TMcoidPhOnyT-yFIJ051CvHngfq0VzfWW6_CR5k6E5l8egknpdTTj_y84zasEI8ybff9zfK-L0NY70D3wt68DqGeu_zojtdjVUPHNo2H8nXlcTlT_Ekj0R8W3edLO4a18KcRo3aFhM8etzed1fONztZY"/>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto mt-14 p-container-margin bg-surface">
+<div class="max-w-[1440px] mx-auto">
+<!-- Page Header & Overview -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-text-primary">Audios y Transcripciones</h1>
+<p class="font-body-md text-body-md text-text-secondary mt-1">Gestiona los archivos de audio de reuniones y sus transcripciones generadas por IA.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-lowest border border-border-subtle text-text-primary px-4 py-2 h-[36px] rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                            Filtrar
+                        </button>
+<button class="bg-primary-container text-white px-4 py-2 h-[36px] rounded-lg font-label-md text-label-md hover:bg-primary transition-colors flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">upload</span>
+                            Subir Audio
+                        </button>
+</div>
+</div>
+<!-- Bento Grid / Metrics (Optional but requested high-end UI patterns) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-6">
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg p-standard-padding flex flex-col justify-between">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-sm text-label-sm text-text-secondary uppercase">Total Audios</span>
+<span class="material-symbols-outlined text-secondary">mic</span>
+</div>
+<div class="font-headline-xl text-headline-xl text-text-primary">124</div>
+<div class="font-body-sm text-body-sm text-success flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+                            12% este mes
+                        </div>
+</div>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg p-standard-padding flex flex-col justify-between">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-sm text-label-sm text-text-secondary uppercase">Horas Transcritas</span>
+<span class="material-symbols-outlined text-secondary">description</span>
+</div>
+<div class="font-headline-xl text-headline-xl text-text-primary">48.5</div>
+<div class="font-body-sm text-body-sm text-text-secondary mt-2">
+                            Equivalente a 82 reuniones
+                        </div>
+</div>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg p-standard-padding flex flex-col justify-between">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-sm text-label-sm text-text-secondary uppercase">En Proceso</span>
+<span class="material-symbols-outlined text-warning animate-pulse">hourglass_empty</span>
+</div>
+<div class="font-headline-xl text-headline-xl text-text-primary">3</div>
+<div class="font-body-sm text-body-sm text-warning mt-2">
+                            Estimado: 15 mins restantes
+                        </div>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg overflow-hidden">
+<div class="bg-surface-bright px-standard-padding py-3 border-b border-border-subtle flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-text-primary text-[16px]">Registro de Archivos</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-bright border-b border-border-subtle font-label-sm text-label-sm text-text-secondary uppercase">
+<th class="p-compact-padding pl-standard-padding font-semibold">Archivo</th>
+<th class="p-compact-padding font-semibold">Contacto Asignado</th>
+<th class="p-compact-padding font-semibold">Fecha</th>
+<th class="p-compact-padding font-semibold">Duración</th>
+<th class="p-compact-padding font-semibold">Estado</th>
+<th class="p-compact-padding pr-standard-padding text-right font-semibold">Acciones</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-text-primary">
+<!-- Row 1 -->
+<tr class="border-b border-border-subtle hover:bg-surface-bright transition-colors group">
+<td class="p-compact-padding pl-standard-padding">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[18px]">audio_file</span>
+</div>
+<div>
+<div class="font-semibold truncate w-48" title="Reunión 1-a-1_Juan_Perez.mp3">Reunión 1-a-1_Juan...</div>
+<div class="text-[11px] text-text-secondary">4.2 MB • MP3</div>
+</div>
+</div>
+</td>
+<td class="p-compact-padding">
+<div class="flex items-center gap-2">
+<img alt="Contacto" class="w-6 h-6 rounded-full object-cover" data-alt="Retrato de un hombre de negocios en sus 40s, vistiendo traje gris, sonriendo, fondo de oficina corporativa." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhJLGEAHdgCfSb5wnmdSm7XRV3KxNQm0-8vma-DxqV7AB4kkDyyUqhjAElJbKbRAuovKVO5tE2I6cpUyDIrEfA0PxNcziEfp9wibFFDNIhPJGwxQSN-6zgjBS4OTxwfA7_BttMg61cW83aBwf1VFhZr3ehvh5MJTkTOzfvS0_i0Yo_HlwakSyfXurFcGVDFOar6dlxOnv7uEjjM1flAIFVZR3OoYuV4DjDt3UZWTMbWBfmgBhTmh2FSA5371-IGRmy2-m9tq7F69M"/>
+<span>Juan Perez</span>
+</div>
+</td>
+<td class="p-compact-padding text-text-secondary">24 Oct 2023, 10:30</td>
+<td class="p-compact-padding text-text-secondary">45:12</td>
+<td class="p-compact-padding">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-success/10 text-success font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+                                            Completado
+                                        </span>
+</td>
+<td class="p-compact-padding pr-standard-padding text-right">
+<button class="text-primary hover:text-primary-container font-label-md text-label-md transition-colors invisible group-hover:visible">Ver Transcripción</button>
+<button class="ml-2 text-secondary hover:text-text-primary p-1 rounded transition-colors"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-border-subtle hover:bg-surface-bright transition-colors bg-surface-container-low group">
+<td class="p-compact-padding pl-standard-padding">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[18px]">audio_file</span>
+</div>
+<div>
+<div class="font-semibold truncate w-48" title="Presentacion_Sinergia_Tech.m4a">Presentacion_Sine...</div>
+<div class="text-[11px] text-text-secondary">12.8 MB • M4A</div>
+</div>
+</div>
+</td>
+<td class="p-compact-padding">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-sm">ST</div>
+<span>Sinergia Tech (Grupo)</span>
+</div>
+</td>
+<td class="p-compact-padding text-text-secondary">24 Oct 2023, 08:00</td>
+<td class="p-compact-padding text-text-secondary">1:20:05</td>
+<td class="p-compact-padding">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-warning/10 text-warning font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[12px] animate-spin">sync</span>
+                                            Procesando (65%)
+                                        </span>
+</td>
+<td class="p-compact-padding pr-standard-padding text-right">
+<button class="text-secondary opacity-50 cursor-not-allowed font-label-md text-label-md">Ver Transcripción</button>
+<button class="ml-2 text-secondary hover:text-text-primary p-1 rounded transition-colors"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b border-border-subtle hover:bg-surface-bright transition-colors group">
+<td class="p-compact-padding pl-standard-padding">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[18px]">audio_file</span>
+</div>
+<div>
+<div class="font-semibold truncate w-48" title="Nota_Voz_Idea_Referencia.wav">Nota_Voz_Idea_Ref...</div>
+<div class="text-[11px] text-text-secondary">1.1 MB • WAV</div>
+</div>
+</div>
+</td>
+<td class="p-compact-padding text-text-secondary italic">Sin asignar</td>
+<td class="p-compact-padding text-text-secondary">23 Oct 2023, 16:45</td>
+<td class="p-compact-padding text-text-secondary">02:30</td>
+<td class="p-compact-padding">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                            Pendiente
+                                        </span>
+</td>
+<td class="p-compact-padding pr-standard-padding text-right">
+<button class="text-primary hover:text-primary-container font-label-md text-label-md transition-colors invisible group-hover:visible">Iniciar Proceso</button>
+<button class="ml-2 text-secondary hover:text-text-primary p-1 rounded transition-colors"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-bright transition-colors bg-surface-container-low group">
+<td class="p-compact-padding pl-standard-padding">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[18px]">audio_file</span>
+</div>
+<div>
+<div class="font-semibold truncate w-48" title="Entrevista_Socia_Maria.mp3">Entrevista_Socia_...</div>
+<div class="text-[11px] text-text-secondary">5.6 MB • MP3</div>
+</div>
+</div>
+</td>
+<td class="p-compact-padding">
+<div class="flex items-center gap-2">
+<img alt="Contacto" class="w-6 h-6 rounded-full object-cover" data-alt="Retrato de una mujer profesional joven, blusa blanca, fondo iluminado de un centro de negocios moderno." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnb5nmh_9npVeckUEb8TsbrMuyv6u4M5Rqdlt23UBHJrw2rKtTNqIIuc5z5jWDu0VTCg1o1-GMMl1sgncBZt1K06Lfv2wvQvDqTbDufoFBFqEekmrjf_eVYshdbaikGdQZWy2JPloWsQhBobvebHC9Vgp0ozegLSBTCNy6hC3XCXm4DexJdqOV7Wk7mX0w0XLnSgT3iAy_FVm002sdnhBbWlxZGiIZkOR2m6V1Ab7w0gfce5LKgq36QF6O73aH84BXfIWz4FjprOk"/>
+<span>Maria Lopez</span>
+</div>
+</td>
+<td class="p-compact-padding text-text-secondary">21 Oct 2023, 11:15</td>
+<td class="p-compact-padding text-text-secondary">55:40</td>
+<td class="p-compact-padding">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-success/10 text-success font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+                                            Completado
+                                        </span>
+</td>
+<td class="p-compact-padding pr-standard-padding text-right">
+<button class="text-primary hover:text-primary-container font-label-md text-label-md transition-colors invisible group-hover:visible">Ver Transcripción</button>
+<button class="ml-2 text-secondary hover:text-text-primary p-1 rounded transition-colors"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-standard-padding py-3 border-t border-border-subtle bg-surface-bright flex justify-between items-center text-text-secondary font-body-sm">
+<span>Mostrando 1 a 4 de 124 registros</span>
+<div class="flex gap-1">
+<button class="p-1 rounded hover:bg-surface-container disabled:opacity-50"><span class="material-symbols-outlined text-[20px]">chevron_left</span></button>
+<button class="p-1 rounded hover:bg-surface-container"><span class="material-symbols-outlined text-[20px]">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

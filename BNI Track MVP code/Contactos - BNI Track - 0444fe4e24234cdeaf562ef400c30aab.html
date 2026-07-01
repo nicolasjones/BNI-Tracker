@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BNI Track - Directorio de Contactos</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#906f6e",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary-fixed-variant": "#3e4853",
+                        "success": "#15803D",
+                        "primary-container": "#c8102e",
+                        "on-secondary-fixed": "#121d26",
+                        "inverse-primary": "#ffb3b1",
+                        "primary": "#9e001f",
+                        "text-primary": "#1F2933",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-dim": "#dadada",
+                        "primary-fixed-dim": "#ffb3b1",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#d9e3f1",
+                        "on-secondary-container": "#5b6571",
+                        "surface-variant": "#e2e2e2",
+                        "tertiary-container": "#885c0b",
+                        "surface-container-highest": "#e2e2e2",
+                        "danger": "#B91C1C",
+                        "tertiary-fixed-dim": "#f7bc67",
+                        "secondary-fixed-dim": "#bdc7d5",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "inverse-surface": "#2f3131",
+                        "inverse-on-surface": "#f1f1f1",
+                        "secondary": "#555f6b",
+                        "on-surface": "#1a1c1c",
+                        "on-background": "#1a1c1c",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#bf0229",
+                        "tertiary": "#6a4500",
+                        "on-error": "#ffffff",
+                        "border-subtle": "#E5E7EB",
+                        "on-primary-container": "#ffdad8",
+                        "secondary-fixed": "#d9e3f1",
+                        "on-primary-fixed-variant": "#92001c",
+                        "on-tertiary-container": "#ffddb3",
+                        "warning": "#B45309",
+                        "on-tertiary-fixed-variant": "#624000",
+                        "tertiary-fixed": "#ffddb2",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#eeeeee",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#410007",
+                        "on-secondary": "#ffffff",
+                        "text-secondary": "#6B7280",
+                        "on-surface-variant": "#5c403f",
+                        "primary-fixed": "#ffdad8",
+                        "outline-variant": "#e5bdbb",
+                        "on-tertiary-fixed": "#291800"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-margin": "24px",
+                        "unit": "4px",
+                        "compact-padding": "8px",
+                        "standard-padding": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Montserrat"],
+                        "label-md": ["\"Source Sans 3\""],
+                        "body-md": ["\"Source Sans 3\""],
+                        "headline-xl": ["Montserrat"],
+                        "label-sm": ["\"Source Sans 3\""],
+                        "headline-md": ["Montserrat"],
+                        "body-sm": ["\"Source Sans 3\""],
+                        "body-lg": ["\"Source Sans 3\""]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "700" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="h-full bg-surface-bright text-on-surface antialiased font-body-md">
+<!-- App Container -->
+<div class="flex h-full w-full max-w-[1440px] mx-auto bg-surface-bright">
+<!-- SideNavBar -->
+<nav class="fixed inset-y-0 left-0 z-40 flex flex-col bg-surface-container-lowest dark:bg-inverse-surface w-[240px] border-r border-border-subtle dark:border-outline">
+<!-- Header/Brand -->
+<div class="flex flex-col p-container-margin border-b border-border-subtle dark:border-outline">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 bg-primary-container rounded-lg flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hub</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">BNI Track</h1>
+<p class="font-label-sm text-label-sm text-secondary">CRM de Networking</p>
+</div>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 py-4 overflow-y-auto">
+<ul class="flex flex-col space-y-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container dark:hover:bg-on-secondary-fixed-variant transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+</li>
+<li>
+<!-- Active State for Contactos -->
+<a class="flex items-center gap-3 px-4 py-2 text-primary dark:text-primary-fixed-dim border-l-4 border-primary dark:border-primary-fixed-dim bg-surface-container-low dark:bg-secondary-container/10 opacity-80 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-md text-label-md">Contactos</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container dark:hover:bg-on-secondary-fixed-variant transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span class="font-label-md text-label-md">Interacciones</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container dark:hover:bg-on-secondary-fixed-variant transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-label-md text-label-md">Base de Conocimiento</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container dark:hover:bg-on-secondary-fixed-variant transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Configuración</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Footer Link -->
+<div class="p-4 border-t border-border-subtle dark:border-outline">
+<a class="flex items-center gap-3 px-4 py-2 text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container dark:hover:bg-on-secondary-fixed-variant transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-label-md text-label-md">Perfil de Usuario</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 pl-[240px]">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-[240px] h-14 flex justify-between items-center px-standard-padding z-30 bg-surface-container-lowest dark:bg-inverse-surface border-b border-border-subtle dark:border-outline">
+<!-- Search -->
+<div class="flex-1 max-w-md relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-sm">search</span>
+<input class="w-full h-9 pl-9 pr-4 rounded-lg border border-border-subtle bg-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none font-body-sm text-text-primary placeholder:text-text-secondary transition-all" placeholder="Buscar contactos, empresas, rubros..." type="text"/>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-4 ml-4">
+<button aria-label="Notificaciones" class="p-2 text-secondary hover:bg-surface-container-high dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button aria-label="Asistente IA" class="p-2 text-secondary hover:bg-surface-container-high dark:hover:bg-on-secondary-fixed-variant rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</button>
+<button class="h-9 px-4 bg-primary-container text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary transition-colors flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        Nuevo
+                    </button>
+<div class="h-8 w-8 rounded-full bg-surface-variant border border-border-subtle overflow-hidden ml-2 cursor-pointer flex-shrink-0">
+<img alt="Avatar del usuario" class="w-full h-full object-cover" data-alt="A professional headshot portrait of a business person in a modern corporate setting, soft high-key lighting, bright white and gray background, conveying trust and reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYDCh0J4mfLhTs2FaftzN58DYo_9JAxXZQSMttQEA8XCsx5w0eE0izlvNGbiLw43eYgihGiQjvd0Y9JE_Pha7iwPJk-WDCKwjzhy4YZe7Kfb2wWs0rHMTPUOntaLxFx1otO-WkT5P16S19kelh_nVdbhL4-pqslk549ATMDZcI9_fRMxCkokthRG_sWtbkWJDXNBHqbISHO9GlVzy8INCTe1_hHZdu77R6s2WGTSVREqsBz1Pj7Vxm59WwcU5fQfpHYyDzk_nQCqk"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<div class="flex-1 pt-14 p-container-margin overflow-y-auto">
+<!-- Page Header & Toolbar -->
+<div class="flex flex-col gap-4 mb-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">Directorio de Contactos</h2>
+<p class="font-body-md text-body-md text-secondary mt-1">Gestiona tus relaciones profesionales y networking.</p>
+</div>
+<!-- Filter Toolbar -->
+<div class="flex flex-wrap items-center gap-3 p-3 bg-surface-container-lowest border border-border-subtle rounded-lg shadow-sm">
+<!-- Estado Filter -->
+<div class="flex items-center gap-2 border-r border-border-subtle pr-3">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Estado</span>
+<div class="flex gap-1">
+<button class="px-3 py-1 rounded-full border border-border-subtle bg-surface-bright text-text-primary font-body-sm hover:bg-surface-variant transition-colors">Activo</button>
+<button class="px-3 py-1 rounded-full border border-border-subtle bg-surface-bright text-text-primary font-body-sm hover:bg-surface-variant transition-colors">Frío</button>
+<button class="px-3 py-1 rounded-full border border-border-subtle bg-surface-bright text-text-primary font-body-sm hover:bg-surface-variant transition-colors">Prospecto</button>
+</div>
+</div>
+<!-- Rubro Filter -->
+<div class="flex items-center gap-2 border-r border-border-subtle pr-3">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Rubro</span>
+<select class="h-8 pl-3 pr-8 rounded-md border border-border-subtle bg-surface-bright font-body-sm text-text-primary focus:border-primary-container outline-none">
+<option value="">Todos los rubros</option>
+<option value="it">Tecnología / IT</option>
+<option value="arch">Arquitectura</option>
+<option value="ins">Seguros</option>
+</select>
+</div>
+<!-- Etiquetas Filter -->
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Etiquetas</span>
+<button class="flex items-center gap-1 h-8 px-3 rounded-md border border-border-subtle bg-surface-bright text-text-primary font-body-sm hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[16px]">sell</span>
+                                 Añadir filtro
+                             </button>
+</div>
+<div class="ml-auto">
+<button class="text-primary-container font-label-md text-label-md hover:text-primary transition-colors">Limpiar filtros</button>
+</div>
+</div>
+</div>
+<!-- Data Table Card -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-bright border-b border-border-subtle">
+<th class="p-compact-padding pl-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider w-[250px]">Contacto</th>
+<th class="p-compact-padding font-label-sm text-label-sm text-secondary uppercase tracking-wider">Empresa</th>
+<th class="p-compact-padding font-label-sm text-label-sm text-secondary uppercase tracking-wider">Rubro</th>
+<th class="p-compact-padding font-label-sm text-label-sm text-secondary uppercase tracking-wider">Estado</th>
+<th class="p-compact-padding font-label-sm text-label-sm text-secondary uppercase tracking-wider">Últ. Interacción</th>
+<th class="p-compact-padding font-label-sm text-label-sm text-secondary uppercase tracking-wider text-center">Temp.</th>
+<th class="p-compact-padding pr-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-text-primary">
+<!-- Row 1 -->
+<tr class="border-b border-border-subtle hover:bg-surface transition-colors group">
+<td class="p-compact-padding pl-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-surface-variant flex items-center justify-center text-secondary font-label-md">CR</div>
+<div>
+<div class="font-semibold text-text-primary">Carlos Rodríguez</div>
+<div class="text-secondary text-xs">carlos@ejemplo.com</div>
+</div>
+</div>
+</td>
+<td class="p-compact-padding">TechSolutions S.A.</td>
+<td class="p-compact-padding text-secondary">Consultor IT</td>
+<td class="p-compact-padding">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-success/10 text-success border border-success/20">
+                                            Activo
+                                        </span>
+</td>
+<td class="p-compact-padding text-secondary">Hace 2 días</td>
+<td class="p-compact-padding text-center">
+<div class="inline-flex h-3 w-3 rounded-full bg-success ring-4 ring-success/20"></div>
+</td>
+<td class="p-compact-padding pr-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 text-secondary hover:text-primary-container transition-colors" title="Nueva Interacción">
+<span class="material-symbols-outlined text-[18px]">add_comment</span>
+</button>
+<button class="p-1 text-secondary hover:text-text-primary transition-colors" title="Ver ficha">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 text-secondary hover:text-text-primary transition-colors" title="Más opciones">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-border-subtle bg-surface-bright hover:bg-surface transition-colors group">
+<td class="p-compact-padding pl-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-surface-variant flex items-center justify-center text-secondary font-label-md">AM</div>
+<div>
+<div class="font-semibold text-text-primary">Ana Morales</div>
+<div class="text-secondary text-xs">ana@moralesarq.com</div>
+</div>
+</div>
+</td>
+<td class="p-compact-padding">Morales Arquitectos</td>
+<td class="p-compact-padding text-secondary">Arquitecta</td>
+<td class="p-compact-padding">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-surface-variant text-secondary border border-border-subtle">
+                                            Frío
+                                        </span>
+</td>
+<td class="p-compact-padding text-secondary">Hace 45 días</td>
+<td class="p-compact-padding text-center">
+<div class="inline-flex h-3 w-3 rounded-full bg-danger ring-4 ring-danger/20"></div>
+</td>
+<td class="p-compact-padding pr-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 text-secondary hover:text-primary-container transition-colors" title="Nueva Interacción">
+<span class="material-symbols-outlined text-[18px]">add_comment</span>
+</button>
+<button class="p-1 text-secondary hover:text-text-primary transition-colors" title="Ver ficha">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 text-secondary hover:text-text-primary transition-colors" title="Más opciones">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b border-border-subtle hover:bg-surface transition-colors group">
+<td class="p-compact-padding pl-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-surface-variant flex items-center justify-center text-secondary font-label-md">RG</div>
+<div>
+<div class="font-semibold text-text-primary">Roberto Gómez</div>
+<div class="text-secondary text-xs">rgomez@seguros.com</div>
+</div>
+</div>
+</td>
+<td class="p-compact-padding">Global Seguros</td>
+<td class="p-compact-padding text-secondary">Seguros</td>
+<td class="p-compact-padding">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-tertiary-fixed text-tertiary border border-tertiary/20">
+                                            Prospecto
+                                        </span>
+</td>
+<td class="p-compact-padding text-secondary">Hace 5 días</td>
+<td class="p-compact-padding text-center">
+<div class="inline-flex h-3 w-3 rounded-full bg-warning ring-4 ring-warning/20"></div>
+</td>
+<td class="p-compact-padding pr-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 text-secondary hover:text-primary-container transition-colors" title="Nueva Interacción">
+<span class="material-symbols-outlined text-[18px]">add_comment</span>
+</button>
+<button class="p-1 text-secondary hover:text-text-primary transition-colors" title="Ver ficha">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 text-secondary hover:text-text-primary transition-colors" title="Más opciones">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="bg-surface-bright border-t border-border-subtle p-3 flex items-center justify-between">
+<span class="font-body-sm text-secondary">Mostrando 1 a 3 de 156 contactos</span>
+<div class="flex items-center gap-1">
+<button class="h-8 px-2 rounded border border-border-subtle text-secondary hover:bg-surface-variant transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="h-8 w-8 rounded border border-primary-container bg-primary-container text-on-primary font-label-sm flex items-center justify-center">1</button>
+<button class="h-8 w-8 rounded border border-border-subtle bg-surface-lowest text-text-primary font-label-sm hover:bg-surface-variant transition-colors flex items-center justify-center">2</button>
+<button class="h-8 w-8 rounded border border-border-subtle bg-surface-lowest text-text-primary font-label-sm hover:bg-surface-variant transition-colors flex items-center justify-center">3</button>
+<button class="h-8 px-2 rounded border border-border-subtle text-secondary hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

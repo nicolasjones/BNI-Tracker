@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"${CLAUDE_PROJECT_DIR:-$PWD}\" && __TEST_COMMAND__ 2>&1 | tail -3 > /tmp/project_test_result.txt; grep -qE \"passed|ok|✓|no tests ran\" /tmp/project_test_result.txt || echo '{\"systemMessage\":\"\\u26a0\\ufe0f Tests fallaron al cerrar sesión. Revisá antes de hacer push.\"}' 2>/dev/null || true",
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
+}

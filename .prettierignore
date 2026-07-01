@@ -1,0 +1,38 @@
+# Dependencies and package manager output
+node_modules/
+
+# Build and framework output
+.next/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# Python caches and test output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# Local SDD/Codex cache and generated runtime assets
+.atl/codex-home/
+.atl/tmp/
+
+# Prototype/reference exports and screenshots
+BNI Track MVP code/
+BNI Track MVP screenshots/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Existing scaffold/artifact files outside this remediation ownership
+.atl/
+.github/
+apps/
+infra/
+openspec/
+packages/
+scripts/
+CLAUDE.md

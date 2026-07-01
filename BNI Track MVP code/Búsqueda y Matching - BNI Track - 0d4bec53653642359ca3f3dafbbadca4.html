@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Búsqueda y Matching - BNI Track</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#ffdad8",
+                        "on-secondary-fixed-variant": "#3e4853",
+                        "surface-container": "#eeeeee",
+                        "on-surface": "#1a1c1c",
+                        "primary-container": "#c8102e",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dadada",
+                        "warning": "#B45309",
+                        "surface-container-high": "#e8e8e8",
+                        "tertiary-fixed-dim": "#f7bc67",
+                        "success": "#15803D",
+                        "primary-fixed": "#ffdad8",
+                        "secondary-fixed-dim": "#bdc7d5",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-tint": "#bf0229",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-primary": "#ffb3b1",
+                        "outline-variant": "#e5bdbb",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "secondary-fixed": "#d9e3f1",
+                        "primary": "#9e001f",
+                        "tertiary": "#6a4500",
+                        "primary-fixed-dim": "#ffb3b1",
+                        "tertiary-container": "#885c0b",
+                        "on-background": "#1a1c1c",
+                        "on-surface-variant": "#5c403f",
+                        "on-secondary-container": "#5b6571",
+                        "text-secondary": "#6B7280",
+                        "on-secondary-fixed": "#121d26",
+                        "border-subtle": "#E5E7EB",
+                        "tertiary-fixed": "#ffddb2",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "inverse-surface": "#2f3131",
+                        "danger": "#B91C1C",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#92001c",
+                        "on-primary-fixed": "#410007",
+                        "on-primary": "#ffffff",
+                        "text-primary": "#1F2933",
+                        "on-tertiary-container": "#ffddb3",
+                        "on-tertiary-fixed": "#291800",
+                        "on-tertiary-fixed-variant": "#624000",
+                        "secondary": "#555f6b",
+                        "outline": "#906f6e",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e2e2e2",
+                        "secondary-container": "#d9e3f1"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "standard-padding": "16px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "container-margin": "24px",
+                        "compact-padding": "8px"
+                    },
+                    fontFamily: {
+                        "label-sm": ["\"Source Sans 3\""],
+                        "headline-md": ["Montserrat"],
+                        "label-md": ["\"Source Sans 3\""],
+                        "body-sm": ["\"Source Sans 3\""],
+                        "headline-xl": ["Montserrat"],
+                        "body-md": ["\"Source Sans 3\""],
+                        "body-lg": ["\"Source Sans 3\""],
+                        "headline-lg": ["Montserrat"]
+                    },
+                    fontSize: {
+                        "label-sm": ["11px", { lineHeight: "14px", fontWeight: "700" }],
+                        "headline-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+                        "headline-xl": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-lg": ["24px", { lineHeight: "32px", fontWeight: "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #F7F7F7; }
+        .match-bar-bg { background-color: #E5E7EB; border-radius: 9999px; overflow: hidden; height: 6px; }
+        .match-bar-fill { background-color: #15803D; height: 100%; border-radius: 9999px; }
+        .match-bar-fill.medium { background-color: #B45309; }
+    </style>
+</head>
+<body class="text-on-background font-body-md antialiased min-h-screen flex flex-col md:flex-row">
+<!-- SideNavBar -->
+<nav class="hidden md:flex bg-surface-container-lowest border-r border-border-subtle docked left-0 h-full w-[240px] fixed inset-y-0 left-0 z-40 flex flex-col">
+<div class="p-container-margin border-b border-border-subtle flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary-container text-on-primary flex items-center justify-center font-bold">B</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">BNI Track</h1>
+<p class="font-label-sm text-label-sm text-text-secondary">CRM de Networking</p>
+</div>
+</div>
+<div class="flex-1 py-4 flex flex-col gap-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- Active State determined by Intent: 'Búsqueda' is closely related to 'Contactos' -->
+<a class="flex items-center gap-3 px-4 py-2 text-primary border-l-4 border-primary bg-surface-container-low opacity-80 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-md text-label-md">Contactos</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span class="font-label-md text-label-md">Interacciones</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-label-md text-label-md">Base de Conocimiento</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Configuración</span>
+</a>
+</div>
+<div class="p-4 border-t border-border-subtle">
+<a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-label-md text-label-md">Perfil de Usuario</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-[240px] flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface-container-lowest border-b border-border-subtle w-full h-14 flex justify-between items-center px-standard-padding z-30 sticky top-0">
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary text-[18px]">search</span>
+<input class="pl-9 pr-4 py-1.5 border border-border-subtle rounded-lg text-body-sm bg-surface-bright focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-64 h-[36px]" placeholder="Buscar..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-secondary hover:bg-surface-container-high rounded-lg p-2 transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-secondary hover:bg-surface-container-high rounded-lg p-2 transition-colors">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</button>
+<button class="bg-primary-container text-on-primary px-4 py-1.5 rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity h-[36px]">
+                    Nuevo
+                </button>
+<img alt="Avatar del usuario" class="w-8 h-8 rounded-full border border-border-subtle object-cover" data-alt="A professional headshot of a business executive against a neutral studio background, conveying trust and authority, ideal for a corporate CRM profile avatar. Lighting is even and flattering, emphasizing approachability and competence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBopRKBTlaT0c6H0rbz9VAYzSa_ackxBXDvjymWwKxarsqhYDMNfwDkhUjonazfCgGFngU0ZhIMm3CIM7r1MVViY5-F6YvU25ZKYIcm8pByLZi-i5pUZk5yyv9dhR2jWq7ePe1Q8afA-ZlRWYC9DdQ0dYXeBBijp4GpJuRVgmuG6dbLMv1RAD4dzRIEVwpc0YQ4Dr_gSr6gwCc1lSjmm73ujla8oXJ_rwy-mL0Xuhya07eRG2BMzjfDYZbqo1DehSc8OdrogaVaEjA"/>
+</div>
+</header>
+<!-- Search & Filter Canvas -->
+<div class="p-container-margin max-w-[1200px] mx-auto w-full flex flex-col gap-6">
+<!-- Context Header -->
+<div class="flex flex-col gap-1">
+<h2 class="font-headline-xl text-headline-xl text-text-primary">Búsqueda de Referencias</h2>
+<p class="font-body-lg text-body-lg text-text-secondary">Encuentra coincidencias exactas basadas en necesidades, industria y perfil GAINS.</p>
+</div>
+<!-- Advanced Search Bar -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg p-4 flex flex-col md:flex-row gap-4 items-end">
+<div class="flex-1 w-full">
+<label class="block font-label-md text-label-md text-text-secondary mb-1">Necesidad o Rubro</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary text-[20px]">manage_search</span>
+<input class="pl-10 pr-4 py-2 w-full border border-border-subtle rounded-lg text-body-md bg-surface-bright focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary shadow-sm h-[40px]" type="text" value="abogado laboral"/>
+</div>
+</div>
+<div class="w-full md:w-48">
+<label class="block font-label-md text-label-md text-text-secondary mb-1">Círculo de Confianza</label>
+<select class="w-full border border-border-subtle rounded-lg text-body-md bg-surface-bright px-3 py-2 h-[40px] focus:outline-none focus:border-primary">
+<option>Capítulo Actual</option>
+<option>Región</option>
+<option>Global</option>
+</select>
+</div>
+<button class="bg-primary-container text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity h-[40px] flex items-center justify-center gap-2 w-full md:w-auto shadow-sm">
+<span class="material-symbols-outlined text-[18px]">search</span>
+                    Buscar
+                </button>
+</div>
+<!-- Results Metrics -->
+<div class="flex justify-between items-center border-b border-border-subtle pb-2">
+<span class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">3 Coincidencias Encontradas</span>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-text-secondary">Ordenar por:</span>
+<select class="border-none bg-transparent font-label-md text-label-md text-text-primary focus:ring-0 cursor-pointer">
+<option>Matching Score</option>
+<option>Actividad Reciente</option>
+</select>
+</div>
+</div>
+<!-- Results Grid (Bento style approach for high density) -->
+<div class="grid grid-cols-1 gap-4">
+<!-- Match Card 1 (High Match) -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg p-5 flex flex-col md:flex-row gap-6 hover:bg-surface-bright transition-colors relative overflow-hidden">
+<!-- Score Indicator -->
+<div class="absolute top-0 right-0 bg-success/10 text-success font-label-sm text-label-sm px-3 py-1 rounded-bl-lg border-b border-l border-success/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                        Alta Coincidencia
+                    </div>
+<!-- Profile Info -->
+<div class="flex items-start gap-4 md:w-1/3 border-r border-border-subtle pr-4">
+<img alt="Perfil" class="w-16 h-16 rounded-full border border-border-subtle object-cover" data-alt="Professional studio portrait of an authoritative male lawyer in his 40s wearing a sharp navy suit, conveying trust and legal expertise in a modern corporate setting. Crisp white light, clean background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5Oa_TTQLMPolWyxu4zmBiHslC1tVRl8sfpBiImDL5k7g0IIXeUKfDVhMqLCRoWo_jdEXQ4JepWoSkrN8etOmi7OBFkpU8OHIsI0jBUv90xYG2wsz_ldKy5SkNiS7HA4E1z_ytkV-nVMdGC198sDQRLAptlOjIAdN09_2pHZQHDA6G6AfLDZ0Nn8KeuUECWtGeAk_N4TUwXONTk07XeV5kebdSlugtPVlPaBOCP5PndvOl3g1t2fh-0AasNxIyRLKJGOvJAWxBnJM"/>
+<div>
+<h3 class="font-headline-md text-headline-md text-text-primary">Carlos Mendoza</h3>
+<p class="font-body-sm text-body-sm text-text-secondary mb-2">Abogado Laboralista - Bufete Central</p>
+<div class="flex flex-col gap-1 w-full mt-3">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-text-secondary">Matching Score</span>
+<span class="font-label-md text-label-md text-success">92%</span>
+</div>
+<div class="match-bar-bg">
+<div class="match-bar-fill w-[92%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Match Explanation -->
+<div class="flex-1 flex flex-col gap-3">
+<h4 class="font-label-md text-label-md text-text-primary uppercase tracking-wider bg-surface-container-low px-2 py-1 rounded inline-block w-fit">Análisis de Coincidencia</h4>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-success text-[18px]">check_circle</span>
+<div>
+<span class="block font-label-md text-label-md text-text-primary">Especialidad Exacta</span>
+<span class="block font-body-sm text-body-sm text-text-secondary">Su esfera de contactos principal es "Derecho Corporativo y Laboral".</span>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-success text-[18px]">check_circle</span>
+<div>
+<span class="block font-label-md text-label-md text-text-primary">Perfil GAINS</span>
+<span class="block font-body-sm text-body-sm text-text-secondary">Busca activamente conexiones con Dptos. de RRHH (Networking ideal).</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="md:w-auto flex flex-row md:flex-col justify-end gap-2 shrink-0 border-t md:border-t-0 md:border-l border-border-subtle pt-4 md:pt-0 md:pl-4 mt-2 md:mt-0">
+<button class="flex-1 md:flex-none bg-primary-container text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity flex items-center justify-center gap-2 h-[36px]">
+<span class="material-symbols-outlined text-[16px]">handshake</span>
+                            Referenciar
+                        </button>
+<button class="flex-1 md:flex-none bg-surface-container-lowest border border-border-subtle text-text-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors flex items-center justify-center gap-2 h-[36px]">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+                            Ver Perfil
+                        </button>
+</div>
+</div>
+<!-- Match Card 2 (Medium Match) -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg p-5 flex flex-col md:flex-row gap-6 hover:bg-surface-bright transition-colors relative overflow-hidden">
+<!-- Profile Info -->
+<div class="flex items-start gap-4 md:w-1/3 border-r border-border-subtle pr-4">
+<img alt="Perfil" class="w-16 h-16 rounded-full border border-border-subtle object-cover" data-alt="Professional studio portrait of an elegant female consultant in her 30s wearing a modern gray blazer, projecting approachability and corporate insight. Soft natural lighting, minimalist office backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI9gPrpTLSEGuylOGbieIMoQok1GlcEL26r6muhEGw3c8idmQn9ZLSoYQ432-SzfiZlut_3Hikcw1kVbewt-LO9nxBCR_6lSSzsYQ0mlUxPYEYAViZ3Xwh8e-ObgE6YfsNeYlL-eo8nX3lmt2XLk9lDMysaVPHQRBqm5arPKAuSJHjf9tIw3jBba370pItxqMbKoKfJ5uQ_NeyQp0DpxswwQOaohDBJXH9HG7KPMNodOxXnTVIXgVCESpJs-PLZ19fXWHQA2MTAe8"/>
+<div>
+<h3 class="font-headline-md text-headline-md text-text-primary">Laura Gutiérrez</h3>
+<p class="font-body-sm text-body-sm text-text-secondary mb-2">Consultora de RRHH - Talent&amp;Co</p>
+<div class="flex flex-col gap-1 w-full mt-3">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-text-secondary">Matching Score</span>
+<span class="font-label-md text-label-md text-warning">68%</span>
+</div>
+<div class="match-bar-bg">
+<div class="match-bar-fill medium w-[68%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Match Explanation -->
+<div class="flex-1 flex flex-col gap-3">
+<h4 class="font-label-md text-label-md text-text-primary uppercase tracking-wider bg-surface-container-low px-2 py-1 rounded inline-block w-fit">Análisis de Coincidencia</h4>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-warning text-[18px]">info</span>
+<div>
+<span class="block font-label-md text-label-md text-text-primary">Esfera Relacionada</span>
+<span class="block font-body-sm text-body-sm text-text-secondary">No es abogada, pero gestiona contratos laborales en su red.</span>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-success text-[18px]">check_circle</span>
+<div>
+<span class="block font-label-md text-label-md text-text-primary">Conexiones Mutuas</span>
+<span class="block font-body-sm text-body-sm text-text-secondary">Ha referido a 2 abogados laboralistas en el último mes.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="md:w-auto flex flex-row md:flex-col justify-end gap-2 shrink-0 border-t md:border-t-0 md:border-l border-border-subtle pt-4 md:pt-0 md:pl-4 mt-2 md:mt-0">
+<button class="flex-1 md:flex-none text-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors flex items-center justify-center gap-2 h-[36px]">
+<span class="material-symbols-outlined text-[16px]">mail</span>
+                            Contactar
+                        </button>
+<button class="flex-1 md:flex-none bg-surface-container-lowest border border-border-subtle text-text-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors flex items-center justify-center gap-2 h-[36px]">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+                            Ver Perfil
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

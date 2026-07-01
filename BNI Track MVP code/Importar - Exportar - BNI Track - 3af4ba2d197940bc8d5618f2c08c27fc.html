@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BNI Track - Importación y Exportación</title>
+<!-- Google Fonts: Montserrat & Source Sans 3 -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config from Brand Anchors -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error": "#ffffff",
+                      "surface-container-low": "#f3f3f3",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-container": "#ffdad8",
+                      "on-secondary-fixed-variant": "#3e4853",
+                      "surface-container": "#eeeeee",
+                      "on-surface": "#1a1c1c",
+                      "primary-container": "#c8102e",
+                      "on-error-container": "#93000a",
+                      "surface-dim": "#dadada",
+                      "warning": "#B45309",
+                      "surface-container-high": "#e8e8e8",
+                      "tertiary-fixed-dim": "#f7bc67",
+                      "success": "#15803D",
+                      "primary-fixed": "#ffdad8",
+                      "secondary-fixed-dim": "#bdc7d5",
+                      "inverse-on-surface": "#f1f1f1",
+                      "surface-tint": "#bf0229",
+                      "surface-bright": "#f9f9f9",
+                      "inverse-primary": "#ffb3b1",
+                      "outline-variant": "#e5bdbb",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#f9f9f9",
+                      "secondary-fixed": "#d9e3f1",
+                      "primary": "#9e001f",
+                      "tertiary": "#6a4500",
+                      "primary-fixed-dim": "#ffb3b1",
+                      "tertiary-container": "#885c0b",
+                      "on-background": "#1a1c1c",
+                      "on-surface-variant": "#5c403f",
+                      "on-secondary-container": "#5b6571",
+                      "text-secondary": "#6B7280",
+                      "on-secondary-fixed": "#121d26",
+                      "border-subtle": "#E5E7EB",
+                      "tertiary-fixed": "#ffddb2",
+                      "surface-container-highest": "#e2e2e2",
+                      "on-secondary": "#ffffff",
+                      "background": "#f9f9f9",
+                      "inverse-surface": "#2f3131",
+                      "danger": "#B91C1C",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#92001c",
+                      "on-primary-fixed": "#410007",
+                      "on-primary": "#ffffff",
+                      "text-primary": "#1F2933",
+                      "on-tertiary-container": "#ffddb3",
+                      "on-tertiary-fixed": "#291800",
+                      "on-tertiary-fixed-variant": "#624000",
+                      "secondary": "#555f6b",
+                      "outline": "#906f6e",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e2e2e2",
+                      "secondary-container": "#d9e3f1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "standard-padding": "16px",
+                      "unit": "4px",
+                      "gutter": "16px",
+                      "container-margin": "24px",
+                      "compact-padding": "8px"
+              },
+              "fontFamily": {
+                      "label-sm": ["\"Source Sans 3\""],
+                      "headline-md": ["Montserrat"],
+                      "label-md": ["\"Source Sans 3\""],
+                      "body-sm": ["\"Source Sans 3\""],
+                      "headline-xl": ["Montserrat"],
+                      "body-md": ["\"Source Sans 3\""],
+                      "body-lg": ["\"Source Sans 3\""],
+                      "headline-lg": ["Montserrat"]
+              },
+              "fontSize": {
+                      "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "700"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                      "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .symbol-filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Hide scrollbar for cleaner look in nav */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E5E7EB;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-text-primary antialiased flex">
+<!-- Shell: SideNavBar -->
+<nav class="bg-surface-container-lowest border-r border-border-subtle fixed inset-y-0 left-0 z-40 flex flex-col h-full w-[240px]">
+<!-- Brand -->
+<div class="px-standard-padding py-6 border-b border-border-subtle flex items-center gap-3">
+<div class="w-8 h-8 bg-primary-container rounded flex items-center justify-center text-on-primary">
+<span aria-hidden="true" class="material-symbols-outlined text-lg">hub</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary leading-none">BNI Track</h1>
+<p class="font-label-sm text-label-sm text-text-secondary mt-1">CRM de Networking</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 py-4 flex flex-col gap-1 overflow-y-auto">
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Contactos</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-md text-label-md">Interacciones</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-md text-label-md">Base de Conocimiento</span>
+</a>
+<!-- Active Tab (Intent: System Tasks / Settings) -->
+<a class="flex items-center gap-3 px-4 py-2 text-primary border-l-4 border-primary bg-surface-container-low transition-colors opacity-80 duration-150" href="#">
+<span class="material-symbols-outlined symbol-filled">settings</span>
+<span class="font-label-md text-label-md">Configuración</span>
+</a>
+</div>
+<!-- Footer Profile -->
+<div class="p-4 border-t border-border-subtle mt-auto">
+<a class="flex items-center gap-3 px-2 py-2 text-secondary hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-md text-label-md">Perfil de Usuario</span>
+</a>
+</div>
+</nav>
+<!-- Shell: TopAppBar -->
+<header class="bg-surface-container-lowest border-b border-border-subtle fixed top-0 right-0 left-[240px] h-14 flex justify-between items-center px-standard-padding z-30">
+<!-- Search/Left side -->
+<div class="flex items-center w-64">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-2 top-1.5 text-text-secondary text-sm">search</span>
+<input class="w-full h-8 pl-8 pr-2 bg-surface-container-low border border-border-subtle rounded font-body-sm text-body-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container/20" placeholder="Buscar en ajustes..." type="text"/>
+</div>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4">
+<button aria-label="Notificaciones" class="text-secondary hover:bg-surface-container-high rounded-lg p-1 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button aria-label="Asistente IA" class="text-secondary hover:bg-surface-container-high rounded-lg p-1 transition-colors">
+<span class="material-symbols-outlined">smart_toy</span>
+</button>
+<div class="h-6 w-px bg-border-subtle mx-1"></div>
+<img alt="Avatar del usuario" class="w-8 h-8 rounded-full border border-border-subtle object-cover" data-alt="A small circular profile avatar showing a professional business person in a well-lit office setting. The style is a clean, modern corporate headshot with a light grey background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-R4QZwNXF2SCmr5ikOViUDZGxDhBP90mrpEmZVG33XqQLAIFzDco981tqmkVF_4WIcDccaKmlItLqO1l8wTun2QNhJvCEVPCT_fZwkMKBsj7ZAMz2hqW6hqQ8MA5Xtwqdcr_8q-_ja7tsMmbL-5LeyOtxOvdyPu2_7OdRl_P4j_JttjrGr7329mmmzusKOZLH97M_eGr5zUYMtYFjUto9GrYtoWIJrd4Ft28-3jGAy1DwSNsXMW0SGwPfZ1gJYpTq4O5917-0ysM"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[240px] pt-14 p-container-margin w-full min-h-screen">
+<!-- Page Header -->
+<div class="mb-6 flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary mb-1">Importación y Exportación</h2>
+<p class="font-body-md text-body-md text-text-secondary">Administra los datos de tu CRM subiendo archivos CSV o exportando tu base completa.</p>
+</div>
+</div>
+<!-- Feedback Toast (Hidden by default, shown for demonstration logic) -->
+<div class="hidden mb-6 bg-success/10 border border-success/30 rounded-lg p-3 flex items-center justify-between" id="success-toast">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success">check_circle</span>
+<span class="font-body-sm text-body-sm text-text-primary">Datos procesados exitosamente. 245 registros actualizados.</span>
+</div>
+<button class="text-text-secondary hover:text-text-primary" onclick="document.getElementById('success-toast').classList.add('hidden')">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<!-- Bento Grid Layout for High Information Density -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Import Section (Takes more space) -->
+<div class="lg:col-span-8 flex flex-col gap-gutter">
+<!-- Import Card -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg flex flex-col">
+<div class="px-standard-padding py-3 border-b border-border-subtle bg-surface-bright rounded-t-lg">
+<h3 class="font-headline-md text-headline-md text-text-primary text-[16px]">Importar desde CSV</h3>
+</div>
+<div class="p-standard-padding flex flex-col gap-6">
+<!-- Upload Zone -->
+<div class="border-2 border-dashed border-border-subtle rounded-lg bg-surface-container-low p-8 flex flex-col items-center justify-center text-center hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="w-12 h-12 bg-surface-container-lowest rounded-full flex items-center justify-center mb-3 shadow-sm group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-secondary text-2xl">cloud_upload</span>
+</div>
+<p class="font-label-md text-label-md text-text-primary mb-1">Arrastra tu archivo CSV aquí</p>
+<p class="font-body-sm text-body-sm text-text-secondary mb-4">o haz clic para explorar tus archivos. Máx 5MB.</p>
+<button class="px-4 py-2 bg-surface-container-lowest border border-border-subtle text-text-primary rounded-lg font-label-md text-label-md hover:bg-surface-bright transition-colors">
+                                Seleccionar Archivo
+                            </button>
+</div>
+<!-- Mapping Section (Active State Simulation) -->
+<div class="bg-surface-bright border border-border-subtle rounded-lg p-4">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-success text-sm">check_circle</span>
+<h4 class="font-label-md text-label-md text-text-primary">Archivo cargado: <span class="font-normal text-text-secondary">contactos_bni_q3.csv (3.2 MB)</span></h4>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mb-3">Revisa el mapeo automático de columnas antes de importar.</p>
+<!-- Dense Table for Mapping -->
+<div class="border border-border-subtle rounded overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-border-subtle">
+<tr>
+<th class="font-label-sm text-label-sm text-text-secondary px-compact-padding py-2 uppercase tracking-wider">Columna CSV</th>
+<th class="font-label-sm text-label-sm text-text-secondary px-compact-padding py-2 uppercase tracking-wider w-8"></th>
+<th class="font-label-sm text-label-sm text-text-secondary px-compact-padding py-2 uppercase tracking-wider">Campo en BNI Track</th>
+<th class="font-label-sm text-label-sm text-text-secondary px-compact-padding py-2 uppercase tracking-wider text-right">Ejemplo (Fila 1)</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm bg-surface-container-lowest">
+<tr class="border-b border-border-subtle hover:bg-surface-bright">
+<td class="px-compact-padding py-2 font-medium">Nombre Completo</td>
+<td class="px-compact-padding py-2 text-center text-text-secondary"><span class="material-symbols-outlined text-[16px]">arrow_right_alt</span></td>
+<td class="px-compact-padding py-2">
+<select class="w-full h-8 px-2 border border-border-subtle rounded bg-surface-container-lowest text-text-primary focus:border-primary-container outline-none">
+<option selected="">Nombre</option>
+<option>Apellidos</option>
+<option>Ignorar</option>
+</select>
+</td>
+<td class="px-compact-padding py-2 text-right text-text-secondary truncate max-w-[120px]">Juan Pérez</td>
+</tr>
+<tr class="border-b border-border-subtle bg-surface-bright hover:bg-surface">
+<td class="px-compact-padding py-2 font-medium">Empresa</td>
+<td class="px-compact-padding py-2 text-center text-text-secondary"><span class="material-symbols-outlined text-[16px]">arrow_right_alt</span></td>
+<td class="px-compact-padding py-2">
+<select class="w-full h-8 px-2 border border-border-subtle rounded bg-surface-container-lowest text-text-primary focus:border-primary-container outline-none">
+<option selected="">Empresa</option>
+<option>Cargo</option>
+<option>Ignorar</option>
+</select>
+</td>
+<td class="px-compact-padding py-2 text-right text-text-secondary truncate max-w-[120px]">Acme Corp</td>
+</tr>
+<tr class="border-b border-border-subtle hover:bg-surface-bright">
+<td class="px-compact-padding py-2 font-medium">Correo Electrónico</td>
+<td class="px-compact-padding py-2 text-center text-text-secondary"><span class="material-symbols-outlined text-[16px]">arrow_right_alt</span></td>
+<td class="px-compact-padding py-2">
+<select class="w-full h-8 px-2 border border-border-subtle rounded bg-surface-container-lowest text-text-primary focus:border-primary-container outline-none">
+<option selected="">Email</option>
+<option>Teléfono</option>
+<option>Ignorar</option>
+</select>
+</td>
+<td class="px-compact-padding py-2 text-right text-text-secondary truncate max-w-[120px]">juan@acme.com</td>
+</tr>
+<tr class="bg-surface-bright hover:bg-surface">
+<td class="px-compact-padding py-2 font-medium text-warning flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span> Fecha
+                                            </td>
+<td class="px-compact-padding py-2 text-center text-text-secondary"><span class="material-symbols-outlined text-[16px]">arrow_right_alt</span></td>
+<td class="px-compact-padding py-2">
+<select class="w-full h-8 px-2 border border-warning/50 rounded bg-warning/5 text-text-primary focus:border-primary-container outline-none">
+<option>Seleccionar campo...</option>
+<option>Fecha Creación</option>
+<option selected="">Ignorar</option>
+</select>
+</td>
+<td class="px-compact-padding py-2 text-right text-text-secondary truncate max-w-[120px]">2023-10-24</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Action Area -->
+<div class="flex justify-end gap-3 pt-4 border-t border-border-subtle">
+<button class="px-4 py-2 bg-surface-container-lowest border border-border-subtle text-text-primary rounded-lg font-label-md text-label-md hover:bg-surface-bright transition-colors">
+                                Cancelar
+                            </button>
+<!-- Simulated Loading State on Click -->
+<button class="px-6 py-2 bg-primary-container text-on-error rounded-lg font-label-md text-label-md hover:bg-primary transition-colors flex items-center gap-2 shadow-sm" onclick="this.innerHTML='&lt;span class=\'material-symbols-outlined animate-spin text-sm\'&gt;progress_activity&lt;/span&gt; Importando...'; setTimeout(() =&gt; { document.getElementById('success-toast').classList.remove('hidden'); this.innerHTML='Importar Datos'; }, 2000);">
+                                Importar Datos
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Export & Sync (Sidebar of main content) -->
+<div class="lg:col-span-4 flex flex-col gap-gutter">
+<!-- Export Card -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg flex flex-col">
+<div class="px-standard-padding py-3 border-b border-border-subtle bg-surface-bright rounded-t-lg">
+<h3 class="font-headline-md text-headline-md text-text-primary text-[16px]">Exportar Datos</h3>
+</div>
+<div class="p-standard-padding flex flex-col gap-4">
+<p class="font-body-sm text-body-sm text-text-secondary">Descarga un respaldo completo de tus contactos e interacciones registradas en la plataforma.</p>
+<div class="flex flex-col gap-3 mt-2">
+<!-- CSV Export Option -->
+<div class="border border-border-subtle rounded-lg p-3 hover:border-primary-container/50 transition-colors group cursor-pointer flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container-low rounded flex items-center justify-center text-text-secondary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">table</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-text-primary">Formato CSV</h4>
+<p class="font-label-sm text-label-sm text-text-secondary font-normal">Ideal para Excel o Sheets</p>
+</div>
+</div>
+<button aria-label="Descargar CSV" class="text-primary p-2 rounded hover:bg-primary-fixed/20 transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<!-- JSON Export Option -->
+<div class="border border-border-subtle rounded-lg p-3 hover:border-primary-container/50 transition-colors group cursor-pointer flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container-low rounded flex items-center justify-center text-text-secondary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">data_object</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-text-primary">Formato JSON</h4>
+<p class="font-label-sm text-label-sm text-text-secondary font-normal">Respaldo técnico completo</p>
+</div>
+</div>
+<button aria-label="Descargar JSON" class="text-primary p-2 rounded hover:bg-primary-fixed/20 transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Info Card (Visual filler for density and modern UI feel) -->
+<div class="bg-surface-bright border border-border-subtle rounded-lg p-4 relative overflow-hidden">
+<!-- Subtle background decoration -->
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary-fixed rounded-full opacity-20 pointer-events-none"></div>
+<div class="flex items-start gap-3 relative z-10">
+<span class="material-symbols-outlined text-primary mt-0.5">lightbulb</span>
+<div>
+<h4 class="font-label-md text-label-md text-text-primary mb-1">Buenas Prácticas</h4>
+<ul class="font-body-sm text-body-sm text-text-secondary list-disc pl-4 space-y-1">
+<li>Asegúrate de que tu CSV use codificación UTF-8.</li>
+<li>Los correos duplicados serán actualizados, no creados de nuevo.</li>
+<li>Recomendamos exportar un respaldo semanal.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

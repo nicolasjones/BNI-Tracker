@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BNI Track - Ficha de Contacto</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#906f6e",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary-fixed-variant": "#3e4853",
+                        "success": "#15803D",
+                        "primary-container": "#c8102e",
+                        "on-secondary-fixed": "#121d26",
+                        "inverse-primary": "#ffb3b1",
+                        "primary": "#9e001f",
+                        "text-primary": "#1F2933",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-dim": "#dadada",
+                        "primary-fixed-dim": "#ffb3b1",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#d9e3f1",
+                        "on-secondary-container": "#5b6571",
+                        "surface-variant": "#e2e2e2",
+                        "tertiary-container": "#885c0b",
+                        "surface-container-highest": "#e2e2e2",
+                        "danger": "#B91C1C",
+                        "tertiary-fixed-dim": "#f7bc67",
+                        "secondary-fixed-dim": "#bdc7d5",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "inverse-surface": "#2f3131",
+                        "inverse-on-surface": "#f1f1f1",
+                        "secondary": "#555f6b",
+                        "on-surface": "#1a1c1c",
+                        "on-background": "#1a1c1c",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#bf0229",
+                        "tertiary": "#6a4500",
+                        "on-error": "#ffffff",
+                        "border-subtle": "#E5E7EB",
+                        "on-primary-container": "#ffdad8",
+                        "secondary-fixed": "#d9e3f1",
+                        "on-primary-fixed-variant": "#92001c",
+                        "on-tertiary-container": "#ffddb3",
+                        "warning": "#B45309",
+                        "on-tertiary-fixed-variant": "#624000",
+                        "tertiary-fixed": "#ffddb2",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#eeeeee",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#410007",
+                        "on-secondary": "#ffffff",
+                        "text-secondary": "#6B7280",
+                        "on-surface-variant": "#5c403f",
+                        "primary-fixed": "#ffdad8",
+                        "outline-variant": "#e5bdbb",
+                        "on-tertiary-fixed": "#291800"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-margin": "24px",
+                        "unit": "4px",
+                        "compact-padding": "8px",
+                        "standard-padding": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Montserrat"],
+                        "label-md": ["\"Source Sans 3\""],
+                        "body-md": ["\"Source Sans 3\""],
+                        "headline-xl": ["Montserrat"],
+                        "label-sm": ["\"Source Sans 3\""],
+                        "headline-md": ["Montserrat"],
+                        "body-sm": ["\"Source Sans 3\""],
+                        "body-lg": ["\"Source Sans 3\""]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "700" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Source Sans 3', sans-serif; background-color: #f9f9f9; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1; }
+        
+        /* Custom scrollbar for high density data feeling */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #E5E7EB; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #bdc7d5; }
+    </style>
+</head>
+<body class="text-text-primary bg-background antialiased flex h-screen overflow-hidden">
+<!-- JSON Anchor: SideNavBar -->
+<nav class="fixed inset-y-0 left-0 z-40 flex flex-col bg-surface-container-lowest border-r border-border-subtle docked left-0 h-full w-[240px]">
+<!-- Brand -->
+<div class="h-14 flex items-center px-4 border-b border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container fill text-2xl">hub</span>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">BNI Track</h1>
+<p class="font-label-sm text-label-sm text-text-secondary leading-none">CRM de Networking</p>
+</div>
+</div>
+</div>
+<!-- Main Navigation -->
+<div class="flex-1 overflow-y-auto py-4 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-surface-container transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<!-- Active Tab: Contactos -->
+<a class="flex items-center gap-3 px-4 py-2 text-primary border-l-4 border-primary bg-surface-container-low font-label-md text-label-md opacity-80 duration-150" href="#">
+<span class="material-symbols-outlined fill">group</span>
+                Contactos
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-surface-container transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">forum</span>
+                Interacciones
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-surface-container transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+                Base de Conocimiento
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary hover:bg-surface-container transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Configuración
+            </a>
+</div>
+<!-- Footer Navigation -->
+<div class="p-4 border-t border-border-subtle">
+<a class="flex items-center gap-3 px-2 py-2 text-secondary hover:bg-surface-container transition-colors font-body-md text-body-md rounded-lg" href="#">
+<img alt="Perfil de Usuario" class="w-8 h-8 rounded-full object-cover border border-border-subtle" data-alt="A small, professional headshot of a business user in a modern office setting, bright lighting, corporate style avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgeRFa028LZkPvdxhs8YIH6JzCO5SixFIdRj5IbRcFMeWQCVZ_66b_PXO6o3vGQqiW3XA60voOUtdd6HNjdRW9InmzSocmLlHOUzmpwIsjoArHcng0Sn97QHBHuXGXfpdAN3L2bBKPUG1qqFf0V4j4T8kQmruoOSamF1-3lVAHkLVM1rLUjdJlDQZCwK-q_i-yhzhka22Bm_HWXUqVRG5kVI1Owr22N_XV9zYi3k9FjKxsGN4V7Zx4jQchafU3Tk4uoAYjUMUeCj4"/>
+                Perfil de Usuario
+            </a>
+</div>
+</nav>
+<!-- Main Wrapper -->
+<div class="flex-1 flex flex-col ml-[240px] min-w-0">
+<!-- JSON Anchor: TopAppBar -->
+<header class="fixed top-0 right-0 left-[240px] h-14 flex justify-between items-center px-standard-padding z-30 bg-surface-container-lowest border-b border-border-subtle docked top-0 w-full transition-all">
+<div class="flex items-center gap-4 flex-1">
+<!-- Search on_left -->
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-text-secondary text-sm">search</span>
+<input class="w-full h-[32px] pl-8 pr-3 bg-surface-container-low border-border-subtle rounded text-body-sm focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-shadow" placeholder="Buscar en BNI Track..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center text-secondary hover:bg-surface-container-high rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg">notifications</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center text-secondary hover:bg-surface-container-high rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg">smart_toy</span>
+</button>
+</div>
+<div class="h-6 w-px bg-border-subtle mx-2"></div>
+<button class="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-1.5 rounded-lg hover:bg-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                    Nuevo
+                </button>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 overflow-y-auto mt-14 p-container-margin bg-background relative">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 mb-6 font-body-sm text-body-sm text-text-secondary">
+<a class="hover:text-primary-container hover:underline" href="#">Contactos</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-text-primary font-semibold">Carlos Rodríguez</span>
+</div>
+<!-- Ficha Rica Layout: 12-column grid -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter items-start pb-20">
+<!-- Left Sidebar (Quick Info) - 3/12 columns -->
+<div class="xl:col-span-3 flex flex-col gap-gutter">
+<!-- Main Identity Card -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg overflow-hidden flex flex-col">
+<div class="bg-surface-container-low h-20 border-b border-border-subtle relative">
+<!-- Cover pattern or color -->
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#9e001f 1px, transparent 1px); background-size: 10px 10px;"></div>
+</div>
+<div class="px-compact-padding pb-compact-padding flex flex-col items-center -mt-10 relative z-10">
+<img class="w-20 h-20 rounded-full object-cover border-4 border-surface-container-lowest shadow-sm mb-3" data-alt="A high-quality professional studio portrait of a modern business executive, male, wearing a crisp suit without a tie, confident smile, well-lit white background, corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC5wMbkSBvoe2UU0LiAupK0yPL2tSXXy_azyTYp3G7-zb4eJJc6kFVd-HUth5z6_uOmoDxi58GtudG6l-_SgCYeLDWawtXdfpaYk8hYe12lRJore77r_9fv6oKmwyhIhmN1J_9kFeBJEqimF_nOxCvlJzw2SQzO_mRQSBcbVeRkG2kZb2J5IYiZoUkjyCBU3SmaL6-A4f2gz0U-HS3xvtawJ6-gsuwSRYYHUb4axS8npoH2o4_0SUXBLtHjX21AWoo1D9XLxMeJHY"/>
+<h2 class="font-headline-md text-headline-md text-text-primary text-center">Carlos Rodríguez</h2>
+<p class="font-body-sm text-body-sm text-text-secondary mb-1">Director de Innovación</p>
+<p class="font-label-md text-label-md text-primary-container">TechSolutions S.A.</p>
+<div class="flex gap-2 mt-4">
+<span class="bg-surface-container flex items-center gap-1 px-2 py-1 rounded text-[11px] font-semibold text-text-primary border border-border-subtle">
+<div class="w-2 h-2 rounded-full bg-success"></div>
+                                    Activo
+                                </span>
+<span class="bg-success/10 text-success flex items-center gap-1 px-2 py-1 rounded text-[11px] font-semibold border border-success/20">
+<span class="material-symbols-outlined text-[14px]">thermostat</span>
+                                    Temp: Alta
+                                </span>
+</div>
+</div>
+<div class="border-t border-border-subtle p-compact-padding flex flex-col gap-3 bg-surface-bright">
+<div class="flex items-center gap-3 font-body-sm text-body-sm text-text-primary">
+<span class="material-symbols-outlined text-text-secondary text-[18px]">mail</span>
+<a class="hover:text-primary-container truncate" href="mailto:carlos.r@techsolutions.com">carlos.r@techsolutions.com</a>
+</div>
+<div class="flex items-center gap-3 font-body-sm text-body-sm text-text-primary">
+<span class="material-symbols-outlined text-text-secondary text-[18px]">phone</span>
+<span>+34 600 123 456</span>
+</div>
+<div class="flex items-center gap-3 font-body-sm text-body-sm text-text-primary">
+<span class="material-symbols-outlined text-text-secondary text-[18px]">language</span>
+<a class="hover:text-primary-container truncate" href="#">linkedin.com/in/crodriguez</a>
+</div>
+</div>
+</div>
+<!-- Quick Private Notes -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg flex flex-col">
+<div class="px-compact-padding py-2 bg-surface-container-low border-b border-border-subtle flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-text-secondary uppercase">Notas Privadas</span>
+<button class="text-text-secondary hover:text-primary-container">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+</button>
+</div>
+<div class="p-compact-padding">
+<textarea class="w-full h-24 text-body-sm font-body-sm bg-transparent border-none resize-none focus:ring-0 p-0 text-text-primary" placeholder="Añade notas rápidas aquí...">Conocido en el evento de Q3. Muy interesado en automatización de procesos. Seguir en 2 semanas.</textarea>
+</div>
+</div>
+</div>
+<!-- Right Content Area (Tabs) - 9/12 columns -->
+<div class="xl:col-span-9 flex flex-col gap-gutter">
+<!-- Tabs Navigation -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg px-standard-padding flex gap-6 border-b-0 rounded-b-none">
+<button class="tab-btn active py-3 border-b-2 font-label-md text-label-md transition-colors border-primary-container text-primary-container" data-target="tab-perfil">
+                            Perfil Profesional
+                        </button>
+<button class="tab-btn py-3 border-b-2 border-transparent font-label-md text-label-md text-text-secondary hover:text-text-primary hover:border-border-subtle transition-colors" data-target="tab-gains">
+                            Perfil G.A.I.N.S.
+                        </button>
+<button class="tab-btn py-3 border-b-2 border-transparent font-label-md text-label-md text-text-secondary hover:text-text-primary hover:border-border-subtle transition-colors" data-target="tab-interacciones">
+                            Timeline Interacciones
+                        </button>
+<button class="tab-btn py-3 border-b-2 border-transparent font-label-md text-label-md text-text-secondary hover:text-text-primary hover:border-border-subtle transition-colors" data-target="tab-otros">
+                            Conexiones &amp; Notas
+                        </button>
+</div>
+<!-- Tab Content Container -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg rounded-t-none min-h-[500px]">
+<!-- TAB: PERFIL -->
+<div class="tab-content block p-standard-padding flex flex-col gap-6" id="tab-perfil">
+<!-- Bento-style grid for profile sections -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Bio -->
+<div class="bg-surface-bright border border-border-subtle rounded p-compact-padding flex flex-col gap-2">
+<h3 class="font-label-sm text-label-sm text-text-secondary uppercase border-b border-border-subtle pb-1">Biografía Breve</h3>
+<p class="font-body-sm text-body-sm text-text-primary leading-relaxed">
+                                        Ingeniero informático con más de 15 años de experiencia en la optimización de procesos corporativos mediante soluciones de software a medida. Apasionado por la inteligencia artificial aplicada a los negocios.
+                                    </p>
+</div>
+<!-- Oferta -->
+<div class="bg-surface-bright border border-border-subtle rounded p-compact-padding flex flex-col gap-2 border-l-4 border-l-primary-container">
+<h3 class="font-label-sm text-label-sm text-text-secondary uppercase border-b border-border-subtle pb-1">Qué Ofrece (Propuesta de Valor)</h3>
+<ul class="font-body-sm text-body-sm text-text-primary space-y-1 list-disc list-inside">
+<li>Auditoría tecnológica gratuita.</li>
+<li>Desarrollo de CRM/ERP personalizados.</li>
+<li>Integración de sistemas legacy con cloud.</li>
+</ul>
+</div>
+<!-- Cliente Ideal -->
+<div class="bg-surface-bright border border-border-subtle rounded p-compact-padding flex flex-col gap-2 md:col-span-2">
+<div class="flex items-center gap-2 border-b border-border-subtle pb-1">
+<span class="material-symbols-outlined text-warning text-[18px]">target</span>
+<h3 class="font-label-sm text-label-sm text-text-secondary uppercase">Cliente Ideal</h3>
+</div>
+<p class="font-body-sm text-body-sm text-text-primary leading-relaxed mt-1">
+                                        Empresas del sector logístico o manufacturero con facturación superior a 2M€ que siguen utilizando hojas de cálculo para procesos críticos y necesitan dar el salto a la digitalización estructurada. Buscan directores de operaciones o CEOs que sientan que "pierden tiempo" en tareas manuales.
+                                    </p>
+</div>
+</div>
+</div>
+<!-- TAB: GAINS -->
+<div class="tab-content hidden p-standard-padding" id="tab-gains">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Goals -->
+<div class="border border-border-subtle rounded-lg overflow-hidden">
+<div class="bg-surface-container flex items-center gap-2 px-3 py-2 border-b border-border-subtle">
+<span class="material-symbols-outlined text-primary-container">flag</span>
+<h3 class="font-label-md text-label-md">Goals (Metas)</h3>
+</div>
+<div class="p-3 font-body-sm text-body-sm text-text-primary">
+                                        Expandir operaciones al mercado latinoamericano en Q4. Aumentar el equipo de desarrollo en 5 personas.
+                                    </div>
+</div>
+<!-- Accomplishments -->
+<div class="border border-border-subtle rounded-lg overflow-hidden">
+<div class="bg-surface-container flex items-center gap-2 px-3 py-2 border-b border-border-subtle">
+<span class="material-symbols-outlined text-tertiary-container">emoji_events</span>
+<h3 class="font-label-md text-label-md">Accomplishments</h3>
+</div>
+<div class="p-3 font-body-sm text-body-sm text-text-primary">
+                                        Premio 'Pyme Innovadora 2023'. Certificación ISO 27001 lograda este año.
+                                    </div>
+</div>
+<!-- Interests -->
+<div class="border border-border-subtle rounded-lg overflow-hidden">
+<div class="bg-surface-container flex items-center gap-2 px-3 py-2 border-b border-border-subtle">
+<span class="material-symbols-outlined text-success">sports_golf</span>
+<h3 class="font-label-md text-label-md">Interests</h3>
+</div>
+<div class="p-3 font-body-sm text-body-sm text-text-primary">
+                                        Ciclismo de montaña, enología, lectura sobre historia económica.
+                                    </div>
+</div>
+<!-- Networks -->
+<div class="border border-border-subtle rounded-lg overflow-hidden md:col-span-1 lg:col-span-2">
+<div class="bg-surface-container flex items-center gap-2 px-3 py-2 border-b border-border-subtle">
+<span class="material-symbols-outlined text-secondary">share</span>
+<h3 class="font-label-md text-label-md">Networks (Redes)</h3>
+</div>
+<div class="p-3 font-body-sm text-body-sm text-text-primary">
+                                        Asociación de Empresas Tecnológicas (AET), Club de Golf La Herrería, Alumni Universidad Politécnica.
+                                    </div>
+</div>
+<!-- Skills -->
+<div class="border border-border-subtle rounded-lg overflow-hidden">
+<div class="bg-surface-container flex items-center gap-2 px-3 py-2 border-b border-border-subtle">
+<span class="material-symbols-outlined text-secondary">psychology</span>
+<h3 class="font-label-md text-label-md">Skills (Habilidades)</h3>
+</div>
+<div class="p-3 font-body-sm text-body-sm text-text-primary flex flex-wrap gap-1">
+<span class="bg-surface-variant px-2 py-0.5 rounded text-xs">Gestión de Proyectos</span>
+<span class="bg-surface-variant px-2 py-0.5 rounded text-xs">Python</span>
+<span class="bg-surface-variant px-2 py-0.5 rounded text-xs">Ventas B2B</span>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB: INTERACCIONES -->
+<div class="tab-content hidden p-standard-padding" id="tab-interacciones">
+<div class="relative pl-6 border-l-2 border-border-subtle space-y-6">
+<!-- Timeline item -->
+<div class="relative">
+<div class="absolute -left-[31px] bg-primary-container text-white w-6 h-6 rounded-full flex items-center justify-center border-4 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[12px]">handshake</span>
+</div>
+<div class="bg-surface-bright border border-border-subtle rounded p-3">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-label-md text-label-md text-text-primary">Reunión 1-a-1</h4>
+<span class="font-label-sm text-label-sm text-text-secondary">Hoy, 10:00 AM</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary">Café en el centro. Discutimos posibles sinergias con su proyecto de expansión. Quedamos en revisar su CRM actual.</p>
+</div>
+</div>
+<!-- Timeline item -->
+<div class="relative">
+<div class="absolute -left-[31px] bg-surface-container-high text-secondary w-6 h-6 rounded-full flex items-center justify-center border-4 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[12px]">mail</span>
+</div>
+<div class="bg-surface-lowest border border-border-subtle rounded p-3 opacity-80">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-label-md text-label-md text-text-primary">Email enviado</h4>
+<span class="font-label-sm text-label-sm text-text-secondary">Hace 3 días</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary">Envío de presentación corporativa y propuesta inicial de auditoría.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB: OTROS -->
+<div class="tab-content hidden p-standard-padding flex flex-col gap-6" id="tab-otros">
+<div class="bg-surface-bright border border-border-subtle rounded p-compact-padding">
+<h3 class="font-label-sm text-label-sm text-text-secondary uppercase border-b border-border-subtle pb-1 mb-2">Cómo presentar a Carlos</h3>
+<p class="font-body-sm text-body-sm text-text-primary italic">
+                                    "Te presento a Carlos Rodríguez, él es experto en hacer que las empresas dejen de perder tiempo en procesos manuales y conecten todos sus sistemas para vender más y operar mejor."
+                                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Referidos Buenos -->
+<div class="border border-success/30 bg-success/5 rounded p-compact-padding flex flex-col gap-2">
+<div class="flex items-center gap-2 text-success">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<h3 class="font-label-md text-label-md">Buenas Referencias</h3>
+</div>
+<ul class="font-body-sm text-body-sm text-text-primary space-y-1 list-disc list-inside">
+<li>Directores de operaciones en fábricas.</li>
+<li>Empresas logísticas en crecimiento.</li>
+<li>Despachos de abogados grandes.</li>
+</ul>
+</div>
+<!-- Referidos Malos -->
+<div class="border border-danger/30 bg-danger/5 rounded p-compact-padding flex flex-col gap-2">
+<div class="flex items-center gap-2 text-danger">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+<h3 class="font-label-md text-label-md">Malas Referencias</h3>
+</div>
+<ul class="font-body-sm text-body-sm text-text-primary space-y-1 list-disc list-inside">
+<li>Autónomos o freelancers (no es su target de precio).</li>
+<li>Empresas que buscan solo una web básica.</li>
+<li>Comercios minoristas pequeños.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Area (Footer) -->
+<div class="fixed bottom-0 right-0 left-[240px] p-4 bg-surface-container-lowest/90 backdrop-blur-sm border-t border-border-subtle flex justify-end gap-3 z-30">
+<button class="bg-surface-container-lowest text-text-primary border border-border-subtle font-label-md text-label-md px-4 py-2 rounded-lg hover:bg-surface-container-high transition-colors flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                Editar Perfil
+            </button>
+<button class="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-lg hover:bg-primary transition-colors flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add_reaction</span>
+                Nueva Interacción
+            </button>
+</div>
+</div>
+<!-- Simple Tab Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Reset all
+                    tabBtns.forEach(b => {
+                        b.classList.remove('border-primary-container', 'text-primary-container');
+                        b.classList.add('border-transparent', 'text-text-secondary');
+                    });
+                    tabContents.forEach(c => c.classList.add('hidden'));
+                    tabContents.forEach(c => c.classList.remove('block'));
+
+                    // Set active
+                    btn.classList.add('border-primary-container', 'text-primary-container');
+                    btn.classList.remove('border-transparent', 'text-text-secondary');
+                    
+                    const targetId = btn.getAttribute('data-target');
+                    document.getElementById(targetId).classList.remove('hidden');
+                    document.getElementById(targetId).classList.add('block');
+                });
+            });
+        });
+    </script>
+</body></html>

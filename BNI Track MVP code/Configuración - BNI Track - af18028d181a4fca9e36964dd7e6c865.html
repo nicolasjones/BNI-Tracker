@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Configuración - BNI Track</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#ffdad8",
+                        "on-secondary-fixed-variant": "#3e4853",
+                        "surface-container": "#eeeeee",
+                        "on-surface": "#1a1c1c",
+                        "primary-container": "#c8102e",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dadada",
+                        "warning": "#B45309",
+                        "surface-container-high": "#e8e8e8",
+                        "tertiary-fixed-dim": "#f7bc67",
+                        "success": "#15803D",
+                        "primary-fixed": "#ffdad8",
+                        "secondary-fixed-dim": "#bdc7d5",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-tint": "#bf0229",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-primary": "#ffb3b1",
+                        "outline-variant": "#e5bdbb",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "secondary-fixed": "#d9e3f1",
+                        "primary": "#9e001f",
+                        "tertiary": "#6a4500",
+                        "primary-fixed-dim": "#ffb3b1",
+                        "tertiary-container": "#885c0b",
+                        "on-background": "#1a1c1c",
+                        "on-surface-variant": "#5c403f",
+                        "on-secondary-container": "#5b6571",
+                        "text-secondary": "#6B7280",
+                        "on-secondary-fixed": "#121d26",
+                        "border-subtle": "#E5E7EB",
+                        "tertiary-fixed": "#ffddb2",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "inverse-surface": "#2f3131",
+                        "danger": "#B91C1C",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#92001c",
+                        "on-primary-fixed": "#410007",
+                        "on-primary": "#ffffff",
+                        "text-primary": "#1F2933",
+                        "on-tertiary-container": "#ffddb3",
+                        "on-tertiary-fixed": "#291800",
+                        "on-tertiary-fixed-variant": "#624000",
+                        "secondary": "#555f6b",
+                        "outline": "#906f6e",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e2e2e2",
+                        "secondary-container": "#d9e3f1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "standard-padding": "16px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "container-margin": "24px",
+                        "compact-padding": "8px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["\"Source Sans 3\""],
+                        "headline-md": ["Montserrat"],
+                        "label-md": ["\"Source Sans 3\""],
+                        "body-sm": ["\"Source Sans 3\""],
+                        "headline-xl": ["Montserrat"],
+                        "body-md": ["\"Source Sans 3\""],
+                        "body-lg": ["\"Source Sans 3\""],
+                        "headline-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "700" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-text-primary font-body-md min-h-screen overflow-x-hidden antialiased selection:bg-primary-container selection:text-white">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col fixed inset-y-0 left-0 z-40 bg-surface-container-lowest border-r border-border-subtle docked left-0 h-full w-[240px]">
+<div class="p-6">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">BNI Track</h1>
+<p class="font-label-md text-label-md text-text-secondary mt-1">CRM de Networking</p>
+</div>
+<div class="flex-1 overflow-y-auto py-4">
+<ul class="space-y-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary font-label-md text-label-md hover:bg-surface-container transition-colors opacity-80 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                        Dashboard
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary font-label-md text-label-md hover:bg-surface-container transition-colors opacity-80 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                        Contactos
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary font-label-md text-label-md hover:bg-surface-container transition-colors opacity-80 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+                        Interacciones
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary font-label-md text-label-md hover:bg-surface-container transition-colors opacity-80 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+                        Base de Conocimiento
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-primary border-l-4 border-primary bg-surface-container-low font-label-md text-label-md hover:bg-surface-container transition-colors opacity-80 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                        Configuración
+                    </a>
+</li>
+</ul>
+</div>
+<div class="p-4 border-t border-border-subtle">
+<a class="flex items-center gap-3 px-4 py-2 text-secondary font-label-md text-label-md hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+                Perfil de Usuario
+            </a>
+</div>
+</nav>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-[240px] h-14 flex justify-between items-center px-standard-padding z-30 bg-surface-container-lowest border-b border-border-subtle hidden md:flex">
+<div class="flex items-center flex-1 gap-4">
+<!-- Search Placeholder if on_left logic applied -->
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-secondary hover:bg-surface-container-high rounded-lg transition-colors scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-secondary hover:bg-surface-container-high rounded-lg transition-colors scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</button>
+<button class="bg-primary-container text-white px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-primary transition-colors">
+                Nuevo
+            </button>
+<img alt="Avatar del usuario" class="w-8 h-8 rounded-full border border-border-subtle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6RplL3K_rTtb_aur-unAJsD2CCfc3zPEHuKMmdrdTAas80HWWI0aXIabOuRqfZoLtZZ4zOHyVyTPDpZJ4-N6Vox2JIzDhDcJ5WPWAuM3XGD1HcxahtiAz66qxRl82wBnfygFGiHqZA1EbZR9PrxsXWbxrZLO9uqTZ-9fAjzhmajPuqUxNigVxQp_OC2DePB_juN4_D23gP8z7ohvUeO2ve1mos34k5Modt7K_4mBCo5Vd03VKSvXgyghTgo_p9jCHLCazr2CcrvQ"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="md:ml-[240px] pt-14 min-h-screen bg-surface">
+<div class="max-w-[1440px] mx-auto p-container-margin">
+<header class="mb-8">
+<h2 class="font-headline-xl text-headline-xl text-text-primary">Configuración del Sistema</h2>
+<p class="font-body-lg text-body-lg text-text-secondary mt-2">Gestiona tus preferencias, objetivos de networking y conexiones externas.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Primary Settings -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- Objetivos de Networking Card -->
+<section class="bg-surface-container-lowest border border-border-subtle rounded-lg overflow-hidden">
+<header class="bg-surface-bright px-6 py-4 border-b border-border-subtle">
+<h3 class="font-headline-md text-headline-md text-text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">target</span>
+                                Objetivos de Networking
+                            </h3>
+</header>
+<div class="p-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div>
+<label class="block font-label-md text-label-md text-text-secondary mb-2">1-a-1 Semanales Meta</label>
+<input class="w-full border border-border-subtle rounded-lg h-9 px-3 text-body-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none bg-surface-container-lowest" type="number" value="3"/>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1">Recomendado: 2-4 por semana</p>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-text-secondary mb-2">Referidos Mensuales Meta</label>
+<input class="w-full border border-border-subtle rounded-lg h-9 px-3 text-body-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none bg-surface-container-lowest" type="number" value="10"/>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1">Tanto dados como recibidos</p>
+</div>
+<div class="sm:col-span-2">
+<label class="block font-label-md text-label-md text-text-secondary mb-2">Umbral de Contacto Frío (Días)</label>
+<div class="flex items-center gap-4">
+<input class="flex-1 h-2 bg-surface-container-high rounded-lg appearance-none cursor-pointer accent-primary" max="90" min="15" type="range" value="45"/>
+<span class="font-headline-md text-headline-md w-12 text-right">45</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1">Días sin interacción antes de marcar un contacto como "frío".</p>
+</div>
+</div>
+<div class="mt-6 flex justify-end">
+<button class="bg-primary-container text-white px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-primary transition-colors">Guardar Objetivos</button>
+</div>
+</div>
+</section>
+<!-- API Keys Card -->
+<section class="bg-surface-container-lowest border border-border-subtle rounded-lg overflow-hidden">
+<header class="bg-surface-bright px-6 py-4 border-b border-border-subtle">
+<h3 class="font-headline-md text-headline-md text-text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">api</span>
+                                Integraciones IA &amp; API
+                            </h3>
+</header>
+<div class="p-6 space-y-6">
+<div>
+<label class="block font-label-md text-label-md text-text-secondary mb-2">OpenAI API Key (Transcripción &amp; Resúmenes)</label>
+<div class="relative">
+<input class="w-full border border-border-subtle rounded-lg h-9 pl-3 pr-10 text-body-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none bg-surface-container-lowest font-mono" type="password" value="sk-xxxxxxxxxxxxxxxxxxxxxxxx"/>
+<button class="absolute right-2 top-1.5 text-text-secondary hover:text-primary">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1">Necesaria para resumir notas de reuniones 1-a-1 automáticamente.</p>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface rounded-lg border border-border-subtle">
+<div>
+<h4 class="font-headline-md text-headline-md text-text-primary text-sm">Transcripción Automática</h4>
+<p class="font-body-sm text-body-sm text-text-secondary">Procesar audio subido usando Whisper API</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-success"></div>
+</label>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Secondary Settings (Categorías) -->
+<div class="lg:col-span-4">
+<section class="bg-surface-container-lowest border border-border-subtle rounded-lg overflow-hidden h-full">
+<header class="bg-surface-bright px-6 py-4 border-b border-border-subtle flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">category</span>
+                                Rubros Estratégicos
+                            </h3>
+<button class="text-primary hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+</header>
+<div class="p-0">
+<ul class="divide-y divide-border-subtle">
+<li class="px-6 py-3 flex justify-between items-center hover:bg-surface-bright transition-colors group">
+<div>
+<span class="font-body-md text-body-md text-text-primary font-medium">Bienes Raíces</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="inline-block w-2 h-2 rounded-full bg-success"></span>
+<span class="font-label-sm text-label-sm text-text-secondary">Alta Prioridad</span>
+</div>
+</div>
+<button class="text-text-secondary hover:text-danger opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</li>
+<li class="px-6 py-3 flex justify-between items-center hover:bg-surface-bright transition-colors group">
+<div>
+<span class="font-body-md text-body-md text-text-primary font-medium">Servicios Legales</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="inline-block w-2 h-2 rounded-full bg-warning"></span>
+<span class="font-label-sm text-label-sm text-text-secondary">Media Prioridad</span>
+</div>
+</div>
+<button class="text-text-secondary hover:text-danger opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</li>
+<li class="px-6 py-3 flex justify-between items-center hover:bg-surface-bright transition-colors group">
+<div>
+<span class="font-body-md text-body-md text-text-primary font-medium">Marketing Digital</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="inline-block w-2 h-2 rounded-full bg-success"></span>
+<span class="font-label-sm text-label-sm text-text-secondary">Alta Prioridad</span>
+</div>
+</div>
+<button class="text-text-secondary hover:text-danger opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</li>
+<li class="px-6 py-3 flex justify-between items-center hover:bg-surface-bright transition-colors group">
+<div>
+<span class="font-body-md text-body-md text-text-primary font-medium">Contabilidad</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="inline-block w-2 h-2 rounded-full bg-surface-dim"></span>
+<span class="font-label-sm text-label-sm text-text-secondary">Baja Prioridad</span>
+</div>
+</div>
+<button class="text-text-secondary hover:text-danger opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</li>
+</ul>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+</body></html>

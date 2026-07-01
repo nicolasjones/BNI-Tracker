@@ -1,0 +1,7 @@
+{
+  "name": "@bni-track/config",
+  "private": true,
+  "version": "0.1.0",
+  "main": "index.js",
+  "files": ["eslint", "typescript"]
+}
